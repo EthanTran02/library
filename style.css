@@ -92,9 +92,9 @@ body > h1 {
 
 #book_cards > div {
     border: 1px solid black;
-    padding: 32px;    
+    padding: 20px;    
     width: 200px;
-    height: 210px;
+    height: 250px;
 
     display: flex;
     flex-direction: column;
@@ -106,7 +106,7 @@ body > h1 {
 .remove_button {
   position: absolute;
   top: 16px;
-  right: 32px;
+  right: 24px;
 
   cursor: pointer;
   font-size: 24px;

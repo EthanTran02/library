@@ -29,14 +29,22 @@ function displayBook(books) {
 
         const pagesNumber = document.createElement('p')
         pagesNumber.textContent = `${book.pages_number} pages`
-
         
         const readStatus = document.createElement('p')
         readStatus.textContent = `Read Status: ${book.read_status}`
+        if (book.read_status == 'readed') { // add color base on status
+            readStatus.style.color = 'green'
+        } else {
+            readStatus.style.color = 'red'
+        }
 
         const removeButton = document.createElement('div')
         removeButton.className = 'remove_button'
         removeButton.textContent = 'x'
+
+        const changeStateButton = document.createElement('button')
+        changeStateButton.className = 'change_state'
+        changeStateButton.textContent = 'changes status'
 
         info.appendChild(author)
         info.appendChild(pagesNumber)
@@ -45,6 +53,7 @@ function displayBook(books) {
         bookDiv.appendChild(title)
         bookDiv.appendChild(info)
         bookDiv.appendChild(removeButton)
+        bookDiv.appendChild(changeStateButton)
         
         bookCards.appendChild(bookDiv)
 
@@ -52,6 +61,17 @@ function displayBook(books) {
         removeButton.addEventListener('click', () => {
             myLibrary.splice(index, 1)
             displayBook(myLibrary)
+        })
+
+        // create event for change state button that change book's status book 
+        changeStateButton.addEventListener('click', () => {
+            if (book.read_status == 'readed') {
+                book.read_status = 'non-readed'
+                displayBook(myLibrary)
+            } else {
+                book.read_status = 'readed'
+                displayBook(myLibrary)
+            }
         })
     });
 }
