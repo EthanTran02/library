@@ -9,7 +9,7 @@
 <body>
     <h1>Library</h1>
 
-    <button id="add_button">Add book</button>
+    <button id="add_button">Add book <span>+</span></button>
 
     <div id="book_cards"></div>
 
@@ -24,8 +24,18 @@
         <label for="pages">Pages</label>
         <input type="number" id="pages">
 
-        <label for="status">Read status</label>
-        <input type="text" id="status">
+        <label>Read status</label>
+
+        <div class="radio_div">
+            <div>
+                <input type="radio" id="readed" name="status" value="readed">
+                <label for="readed">Readed</label>
+            </div>
+            <div>
+                <input type="radio" id="non-read" name="status" value="non-read">
+                <label for="non-read">Non-read</label>
+            </div>
+        </div>
 
         <button id="submit_button">Add new book</button>
     </form>

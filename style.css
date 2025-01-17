@@ -69,6 +69,12 @@ body > h1 {
     right: 250px;
 }
 
+#add_button span {
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 20px;
+}
+
 
 /* Cards */
 
@@ -129,6 +135,27 @@ form > h2 {
 
 form > input {
   margin-bottom: 20px;
+}
+
+#readed,
+#non-read {
+  margin-bottom: 0;
+  margin-right: 4px;
+}
+
+.radio_div {
+  display: flex;
+  gap: 50px;
+  margin-left: 12px;
+}
+
+.radio_div > div {
+  display: flex;
+  margin: 8px 0 32px;
+}
+
+.radio_div input {
+  margin-right: 12x;
 }
 
 #status {

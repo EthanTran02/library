@@ -16,6 +16,7 @@ function addBookToLibrary(title, author,pages_number, read_status) {
 const bookCards = document.querySelector('#book_cards')
 function displayBook(books) {
     bookCards.innerHTML = '' // emty cards
+
     books.forEach((book, index) => {
         const bookDiv = document.createElement('div')
         const info = document.createElement('div')
@@ -29,6 +30,7 @@ function displayBook(books) {
         const pagesNumber = document.createElement('p')
         pagesNumber.textContent = `${book.pages_number} pages`
 
+        
         const readStatus = document.createElement('p')
         readStatus.textContent = `Read Status: ${book.read_status}`
 
@@ -54,14 +56,12 @@ function displayBook(books) {
     });
 }
 
-// remove book function
-    
 
 // ACTION: click button to showing form
 const button = document.querySelector('#add_button')
 const form = document.querySelector('form')
 button.addEventListener('click', () => {
-        form.style.display = 'flex'
+        form.style.display = 'flex' // displaying the form
 })
 
 // ACTION: click submit to add new book and display it
@@ -72,14 +72,16 @@ submit_button.addEventListener('click', (event)=> {
     const title = document.getElementById('title').value
     const author = document.getElementById('author').value
     const pages = document.getElementById('pages').value
-    const status = document.getElementById('status').value
+    const status = document.querySelector('input[name="status"]:checked').value
 
     addBookToLibrary(title, author, pages, status)// call add new book funciton
     displayBook(myLibrary) // call display books function
 
+    document.querySelector('form').reset() // reset input field
+    
     form.style.display = 'none' // hide form
 })
 
 
-addBookToLibrary('title', 'author','123', 'yes')
+addBookToLibrary('title', 'author','123', 'readed')
 displayBook(myLibrary)
