@@ -76,12 +76,17 @@ function displayBook(books) {
     });
 }
 
-
-// ACTION: click button to showing form
+// ACTION: create event for button to showing form 
+// and another button for close the form
 const button = document.querySelector('#add_button')
 const form = document.querySelector('form')
+const closeButton = document.querySelector('form > p')
 button.addEventListener('click', () => {
         form.style.display = 'flex' // displaying the form
+})
+
+closeButton.addEventListener('click', () => { 
+    form.style.display = 'none' // click x to close the form
 })
 
 // ACTION: click submit to add new book and display it
@@ -101,7 +106,3 @@ submit_button.addEventListener('click', (event)=> {
     
     form.style.display = 'none' // hide form
 })
-
-
-addBookToLibrary('title', 'author','123', 'readed')
-displayBook(myLibrary)

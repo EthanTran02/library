@@ -95,6 +95,8 @@ body > h1 {
     padding: 20px;    
     width: 200px;
     height: 250px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 
     display: flex;
     flex-direction: column;
@@ -122,15 +124,25 @@ form {
   padding: 24px;
   background-color: white;
   border: 1px solid black;
+  position: relative;
 
   position: absolute;
-  top: 50px;
+  top: 40px;
   left: 460px;
+}
+
+form > p {
+  position: absolute;
+  top: 4px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 form > h2 {
   margin: auto;
   margin-bottom: 32px;
+  margin-top: 20px;
 }
 
 form > input {
