@@ -15,8 +15,8 @@ function addBookToLibrary(title, author,pages_number, read_status) {
 // creating book cards and showing cards function
 const bookCards = document.querySelector('#book_cards')
 function displayBook(books) {
-    books.forEach(book => {
-
+    bookCards.innerHTML = '' // emty cards
+    books.forEach((book, index) => {
         const bookDiv = document.createElement('div')
         const info = document.createElement('div')
 
@@ -31,7 +31,10 @@ function displayBook(books) {
 
         const readStatus = document.createElement('p')
         readStatus.textContent = `Read Status: ${book.read_status}`
-        
+
+        const removeButton = document.createElement('div')
+        removeButton.className = 'remove_button'
+        removeButton.textContent = 'x'
 
         info.appendChild(author)
         info.appendChild(pagesNumber)
@@ -39,19 +42,29 @@ function displayBook(books) {
 
         bookDiv.appendChild(title)
         bookDiv.appendChild(info)
+        bookDiv.appendChild(removeButton)
         
         bookCards.appendChild(bookDiv)
+
+        // create event for remove button that remove book 
+        removeButton.addEventListener('click', () => {
+            myLibrary.splice(index, 1)
+            displayBook(myLibrary)
+        })
     });
 }
 
-// click button to showing form
+// remove book function
+    
+
+// ACTION: click button to showing form
 const button = document.querySelector('#add_button')
 const form = document.querySelector('form')
 button.addEventListener('click', () => {
         form.style.display = 'flex'
 })
 
-// click submit to add new book and showing it
+// ACTION: click submit to add new book and display it
 const submit_button = document.getElementById('submit_button')
 submit_button.addEventListener('click', (event)=> {
     event.preventDefault()
@@ -61,10 +74,12 @@ submit_button.addEventListener('click', (event)=> {
     const pages = document.getElementById('pages').value
     const status = document.getElementById('status').value
 
-    addBookToLibrary(title, author, pages, status)//add new book
-    bookCards.innerHTML = '' //empty cards
-    displayBook(myLibrary) //showing new book
-    form.style.display = 'none'
+    addBookToLibrary(title, author, pages, status)// call add new book funciton
+    displayBook(myLibrary) // call display books function
+
+    form.style.display = 'none' // hide form
 })
 
 
+addBookToLibrary('title', 'author','123', 'yes')
+displayBook(myLibrary)
