@@ -9,7 +9,6 @@ class Book {
     }
 }
 
-
 function addBookToLibrary(title, author,pages_number, read_status) {
     book = new Book(title, author,pages_number, read_status)
     myLibrary.push(book)
@@ -84,6 +83,7 @@ function displayBook(books) {
 const button = document.querySelector('#add_button')
 const form = document.querySelector('form')
 const closeButton = document.querySelector('form > p')
+
 button.addEventListener('click', () => {
         form.style.display = 'flex' // displaying the form
 })
